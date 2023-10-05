@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnvme6mc6b15g"]
+
+[ext_resource type="PackedScene" uid="uid://8orkhxqw67p7" path="res://Models/blockLarge.glb" id="1_sfptc"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rqrh1"]
+points = PackedVector3Array(-0.916759, 0.769577, -1.13303, -1.00016, 0, -1.00016, -1.00016, 0.841425, -1.09155, -1.00016, 1, -1.00016, 0.916537, 0.769577, -1.13303, -1.00016, 0, 0.999939, -1.13303, 0.769577, -0.916759, -1.09155, 0.841425, -1.00016, 0.999939, 0, -1.00016, -1.00016, 1, 0.999939, 0.999939, 1, -1.00016, 0.999939, 0.841425, -1.09155, -0.916759, 0.769577, 1.13281, -1.00016, 0.841425, 1.09133, -1.09155, 0.841425, 0.999939, -1.13303, 0.769577, 0.916537, 0.999939, 0, 0.999939, 1.09133, 0.841425, -1.00016, 1.13281, 0.769577, -0.916759, 0.999939, 1, 0.999939, 0.916537, 0.769577, 1.13281, 1.13281, 0.769577, 0.916537, 1.09133, 0.841425, 0.999939, 0.999939, 0.841425, 1.09133)
+
+[node name="blockLarge" instance=ExtResource("1_sfptc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_rqrh1")

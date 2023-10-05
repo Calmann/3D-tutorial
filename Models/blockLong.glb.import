@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/blockLong.glb-706b570932a33b3cafd920caf6063f5
 
 [params]
 
-nodes/root_type="Node3D"
+nodes/root_type="StaticBody3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

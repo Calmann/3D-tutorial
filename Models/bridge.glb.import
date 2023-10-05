@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/bridge.glb-ddfe492d6c9304e1283c4b4ce082ddcd.s
 
 [params]
 
-nodes/root_type="Node3D"
+nodes/root_type="StaticBody3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

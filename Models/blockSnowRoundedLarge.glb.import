@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/blockSnowRoundedLarge.glb-d9a437306f967c3d48a
 
 [params]
 
-nodes/root_type="Node3D"
+nodes/root_type="StaticBody3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
