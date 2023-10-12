@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://djnaahglfed34"]
+
+[ext_resource type="PackedScene" uid="uid://b55x3mt5nfp2a" path="res://Models/coinGold.glb" id="1_delkh"]
+[ext_resource type="Script" path="res://Scripts/coin_gold.gd" id="2_kxuar"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vdbah"]
+points = PackedVector3Array(-0.173205, 0.1, -0.05, 0, 0, -0.05, -0.173205, 0.1, 0.05, -0.173205, 0.3, -0.05, 0, 0, 0.05, 0.173205, 0.1, -0.05, -0.173205, 0.3, 0.05, 0, 0.4, -0.05, 0.173205, 0.1, 0.05, 0.173205, 0.3, -0.05, 0, 0.4, 0.05, 0.173205, 0.3, 0.05)
+
+[sub_resource type="Animation" id="Animation_q4i34"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("coinGold2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sc2uw"]
+resource_name = "collect"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("coinGold2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_efj62"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.14159, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jde8h"]
+_data = {
+"RESET": SubResource("Animation_q4i34"),
+"collect": SubResource("Animation_sc2uw"),
+"default": SubResource("Animation_efj62")
+}
+
+[node name="coinGold" instance=ExtResource("1_delkh")]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0.5, 0, 0.5)
+collision_layer = 2
+script = ExtResource("2_kxuar")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_vdbah")
+
+[node name="anim" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_jde8h")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
